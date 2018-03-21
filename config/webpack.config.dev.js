@@ -90,6 +90,7 @@ module.exports = {
       'react-native': 'react-native-web',
       'constant':path.resolve('src/constant'),
       'component': path.resolve('src/component'),
+      'mock':path.resolve('src/mock'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

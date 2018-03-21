@@ -5,7 +5,7 @@ import {GET_USER_URL} from 'constant/url';
 
 function* getUserData(action){
     try{
-        const userData = yield call(axios.get,GET_USER_URL);
+        const userData = yield call(axios.post,GET_USER_URL);
         yield put({
             type:GET_USER_SUCCESS,
             user:userData,
