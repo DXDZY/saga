@@ -1,14 +1,15 @@
 import {connect} from 'react-redux';
 import {get_carDetail} from 'constant/actionTypes';
-import carDetail from 'component/carDetail';
+import CarDetail from 'component/CarDetail';
 
 const mapStateToProps = (state)=>({
-    data:state.carDetail.data,
+    data:state.carDetail.data.data,
 })
 const mapDispatchToProps = (dispatch)=>({
-    getCarDetail:()=>dispatch({
-        type:get_carDetail
+    getCarDetail:(carid)=>dispatch({
+        type:get_carDetail,
+        carid,
     }),
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(carDetail);
+export default connect(mapStateToProps,mapDispatchToProps)(CarDetail);

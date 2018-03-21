@@ -9,7 +9,7 @@ import 'mock/carDetail';
 function* getDetail(action){
     try{
         let param = new URLSearchParams();
-        param.append('carId','123456');
+        param.append('carId',action.carid);
         const data = yield call(axios.post,get_carDetail_url,param);
         yield put({
             type:get_carDetail_success,

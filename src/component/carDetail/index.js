@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-class carDetail extends Component {
+
+import Banner from './Banner';
+class CarDetail extends Component {
     static defaultProps = {
         data:[],
     }
@@ -8,16 +10,31 @@ class carDetail extends Component {
         this.state = {  }
     }
     componentDidMount() {
-        this.props.getCarDetail();
+        const carid = this.props.match.params.carid;
+        this.props.getCarDetail(carid);
+    }
+    showData=()=>{
+        const {data} = this.props;
+        let ui = [];
+        if(data.data){
+            return(
+                <div>
+                    <Banner {...data.data}/>
+                </div>
+            )
+        }else{
+            return(<div>123</div>);
+        }
+        // return ui
     }
     render() { 
-        const {data} = this.props;
+        const showData = this.showData();
         return (  
             <div>
-                {JSON.stringify(data)}
+                {showData}
             </div>
         )
     }
 }
  
-export default carDetail;
+export default CarDetail;

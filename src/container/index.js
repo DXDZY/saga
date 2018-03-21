@@ -3,8 +3,8 @@ import { HashRouter,Switch,Route,Redirect,Link } from 'react-router-dom';
 
 import PostList from './PostList';
 import UserList from './UserList';
-import Sider from 'component/Sider';
-import carDetail from './carDetail';
+// import Sider from 'component/Sider';
+import CarDetail from './CarDetail';
 
 class App extends Component {
     constructor(props) {
@@ -15,10 +15,9 @@ class App extends Component {
         return (  
             <HashRouter basename="/">
                 <div>
-                    <Sider/>
                     <div>
                         <Switch>
-                            <Route path="/" exact component={carDetail}></Route>
+                            <Route path="/:carid" exact component={CarDetail}></Route>
                             <Route path="/page1" exact component={UserList}></Route>
                             <Route path="/page2" exact component={PostList}></Route>
                         </Switch>
