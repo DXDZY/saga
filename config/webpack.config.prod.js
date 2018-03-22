@@ -98,6 +98,7 @@ module.exports = {
       'component': path.resolve('src/component'),
       'mock':path.resolve('src/mock'),
       'styles':path.resolve('src/styles'),
+      'common':path.resolve('src/common'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -236,6 +237,16 @@ module.exports = {
                 },
               },
             ],
+          },
+          {
+            test: /\.scss$/,
+            exclude:path.resolve('src/styles'),
+            loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]', 'sass-loader?sourceMap=true'],
+          },
+          {
+            test: /\.scss$/,
+            include:path.resolve('src/styles'),
+            loaders: ['style-loader', 'css-loader', 'sass-loader?sourceMap=true'],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

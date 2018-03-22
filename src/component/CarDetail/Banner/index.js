@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import CSSModules from 'react-css-modules';
 import Swiper from 'swiper';
+
 import 'styles/swiper.css'
-import styles from './index.css'
+import styles from './index.scss'
 
 class Banner extends Component {
     constructor(props) {
@@ -10,24 +12,19 @@ class Banner extends Component {
         this.state = {  }
     }
     componentDidMount() {
-        const mySwiper = new Swiper('.swiper-container',{
-            autoplay: {
-                disableOnInteraction: false,
-            },
-        });
+        const mySwiper = new Swiper('.swiper-container');
     }
     render() { 
         const {carConfigPicsInfo} = this.props;
         const liClass = classNames({
-            'swiper-slide':true,
-            [styles.imgItem]:true,
+            imgItem:true,
         });
         return (  
             <div className="swiper-container">
                 <ul className="swiper-wrapper">
                     {
                         carConfigPicsInfo.map(function(item,index){
-                            return (<li className={liClass} key={index}><img src={item.FileName} alt=""/></li>)
+                            return (<li className="swiper-slide" styleName={liClass} key={index}><img src={item.FileName} alt=""/></li>)
                         })
                     }
                 </ul>
@@ -36,4 +33,6 @@ class Banner extends Component {
     }
 }
  
-export default Banner;
+export default CSSModules(Banner,styles,{
+    allowMultiple:true
+});

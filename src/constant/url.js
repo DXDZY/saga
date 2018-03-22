@@ -1,6 +1,6 @@
 let baseUrl='';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl='http://wwww.hao123.com'
+    baseUrl=''
 }
 // console.log(process.env.NODE_ENV);
 //获取车辆详情信息
