@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import Swiper from 'swiper';
 import 'styles/swiper.css'
-import './index.css'
+import styles from './index.css'
 
 class Banner extends Component {
     constructor(props) {
@@ -17,12 +18,16 @@ class Banner extends Component {
     }
     render() { 
         const {carConfigPicsInfo} = this.props;
+        const liClass = classNames({
+            'swiper-slide':true,
+            [styles.imgItem]:true,
+        });
         return (  
             <div className="swiper-container">
                 <ul className="swiper-wrapper">
                     {
                         carConfigPicsInfo.map(function(item,index){
-                            return (<li className="swiper-slide imgItem" key={index}><img src={item.FileName} alt=""/></li>)
+                            return (<li className={liClass} key={index}><img src={item.FileName} alt=""/></li>)
                         })
                     }
                 </ul>
