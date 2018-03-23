@@ -1,3 +1,4 @@
+$fontSize:.293333rem;//22px
 .container {
     position: relative;
     height: 6.666667rem;
@@ -49,7 +50,39 @@
             transform: rotate(45deg);
         }
     }
-    
+    .see{
+        border-radius: .266667rem;
+        background-color:rgba(0, 0, 0, .4);
+        height: .533333rem;
+        position: absolute;
+        left: .4rem;
+        bottom: .266667rem;
+        z-index: 1;
+        text-align: center;
+        font-size: $fontSize;
+        color:#ffffff;
+        padding: .026667rem .24rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        &::after{
+            content: '';
+            display: block;
+            width: .16rem;
+            height: .16rem;
+            border-top: .04rem solid #ffffff;
+            border-right: .04rem solid #ffffff;
+            transform: rotate(135deg);
+            margin-left: .133333rem;
+            margin-top:-.09rem;
+        }
+    }
+    .see-procedures{
+        left: .4rem;
+    }
+    .see-carCondition{
+        left: 2.986667rem;
+    }
 }
 
 
@@ -72,10 +105,38 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    font-size: .293333rem;
+    font-size: $fontSize;
     color: #ffffff;
     .topRightPage {
         margin-left: .266667rem;
+    }
+}
+.bottomRight{
+    padding: .08rem;
+    font-size: $fontSize;
+    color:#ffffff;
+    border-radius: .053333rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .4);
+    position: absolute;
+    right: .4rem;
+    bottom: .266667rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    dl{
+        border-right: 1px solid #7d7c7b;
+        &:last-child{
+            border-right:none;
+        }
+    }
+    dt{
+        padding: .053333rem;
+    }
+    dd{
+        border-top: 1px solid #7d7c7b;
+        padding: .053333rem;
     }
 }
 :global{

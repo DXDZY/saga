@@ -32,7 +32,12 @@ class Banner extends Component {
         });
     }
     render() { 
-        const {picArray} = this.props;
+        const {
+            carConfigPicsInfo,
+            skeleton_level,
+            appearance_level,
+            servicing_level,
+        } = this.props;
         const liClass = classNames({
             imgItem:true,
         });
@@ -41,20 +46,35 @@ class Banner extends Component {
                 <div className="swiper-container">
                     <ul className="swiper-wrapper">
                         {
-                            picArray.map(function(item,index){
+                            carConfigPicsInfo.map(function(item,index){
                                 return (<li className="swiper-slide" styleName={liClass} key={index}><img src={item.FileName} alt="" /></li>)
                             })
                         }
                     </ul>
                 </div>
                 <div styleName="topRight">
-                    <span>{picArray[this.state.pageIndex].PicDes}</span>
-                    <span styleName="topRightPage">{this.state.pageIndex+1}/{picArray.length}</span>
+                    <span>{carConfigPicsInfo[this.state.pageIndex].PicDes}</span>
+                    <span styleName="topRightPage">{this.state.pageIndex+1}/{carConfigPicsInfo.length}</span>
                 </div>
                 <div styleName="leftBtn" id="prevEl"></div>
                 <div styleName="rightBtn" id="nextEl"></div>
+                <div styleName="see see-procedures">查看手续</div>
+                <div styleName="see see-carCondition">查看完整车况</div>
+                <div styleName="bottomRight">
+                    <dl>
+                        <dt>骨架</dt>
+                        <dd>{skeleton_level}</dd>
+                    </dl>
+                    <dl>
+                        <dt>外观</dt>
+                        <dd>{appearance_level}</dd>
+                    </dl>
+                    <dl>
+                        <dt>整备</dt>
+                        <dd>{servicing_level}</dd>
+                    </dl>
+                </div>
             </div>
-            
         )
     }
 }
