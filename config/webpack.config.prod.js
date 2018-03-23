@@ -240,13 +240,46 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            exclude:path.resolve('src/styles'),
-            loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]', 'sass-loader?sourceMap=true'],
-          },
-          {
-            test: /\.scss$/,
-            include:path.resolve('src/styles'),
-            loaders: ['style-loader', 'css-loader', 'sass-loader?sourceMap=true'],
+            use: [{
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: '[name]__[local]_[hash:base64:5]'
+                }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                  sourceMap: true,
+                  config: {
+                    path: 'postcss.config.js' // 这个得在项目根目录创建此文件
+                  },
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+            ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

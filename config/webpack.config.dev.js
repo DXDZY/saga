@@ -84,15 +84,15 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      'constant':path.resolve('src/constant'),
+      'constant': path.resolve('src/constant'),
       'component': path.resolve('src/component'),
-      'mock':path.resolve('src/mock'),
-      'styles':path.resolve('src/styles'),
-      'common':path.resolve('src/common'),
+      'mock': path.resolve('src/mock'),
+      'styles': path.resolve('src/styles'),
+      'common': path.resolve('src/common'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -115,16 +115,14 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
-              
-            },
-            loader: require.resolve('eslint-loader'),
+        use: [{
+          options: {
+            formatter: eslintFormatter,
+            eslintPath: require.resolve('eslint'),
+
           },
-        ],
+          loader: require.resolve('eslint-loader'),
+        }, ],
         include: paths.appSrc,
       },
       {
@@ -149,7 +147,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -163,14 +161,14 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            exclude:path.resolve('src/styles'),
+            exclude: path.resolve('src/styles'),
             use: [
               require.resolve('style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
-                  modules:true,
+                  modules: true,
                   localIdentName: '[name]__[local]__[hash:base64:5]',
                 },
               },
@@ -198,7 +196,7 @@ module.exports = {
           },
           {
             test: /\.css$/,
-            include:path.resolve('src/styles'),
+            include: path.resolve('src/styles'),
             use: [
               require.resolve('style-loader'),
               {
@@ -231,13 +229,46 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            exclude:path.resolve('src/styles'),
-            loaders: ['style-loader', 'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]', 'sass-loader?sourceMap=true'],
-          },
-          {
-            test: /\.scss$/,
-            include:path.resolve('src/styles'),
-            loaders: ['style-loader', 'css-loader', 'sass-loader?sourceMap=true'],
+            use: [{
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                  modules: true,
+                  localIdentName: '[name]__[local]_[hash:base64:5]'
+                }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                  sourceMap: true,
+                  config: {
+                    path: 'postcss.config.js' // 这个得在项目根目录创建此文件
+                  },
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+            ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -249,7 +280,7 @@ module.exports = {
             // its runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/,/\.scss$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.scss$/],
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',

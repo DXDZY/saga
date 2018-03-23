@@ -9,26 +9,52 @@ import styles from './index.scss'
 class Banner extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {  
+            pageIndex:0,
+        }
     }
     componentDidMount() {
-        const mySwiper = new Swiper('.swiper-container');
+        const that = this;
+        const mySwiper = new Swiper('.swiper-container',{
+            zoom : true,
+            navigation:{
+                nextEl: '#nextEl',
+                prevEl: '#prevEl',
+                disabledClass: 'swiper-disabled',
+            },
+            on:{
+                slideChangeTransitionEnd:function(swiper){
+                    that.setState({
+                        pageIndex:this.activeIndex,
+                    })
+                }
+            }
+        });
     }
     render() { 
-        const {carConfigPicsInfo} = this.props;
+        const {picArray} = this.props;
         const liClass = classNames({
             imgItem:true,
         });
         return (  
-            <div className="swiper-container">
-                <ul className="swiper-wrapper">
-                    {
-                        carConfigPicsInfo.map(function(item,index){
-                            return (<li className="swiper-slide" styleName={liClass} key={index}><img src={item.FileName} alt=""/></li>)
-                        })
-                    }
-                </ul>
+            <div styleName="container">
+                <div className="swiper-container">
+                    <ul className="swiper-wrapper">
+                        {
+                            picArray.map(function(item,index){
+                                return (<li className="swiper-slide" styleName={liClass} key={index}><img src={item.FileName} alt="" /></li>)
+                            })
+                        }
+                    </ul>
+                </div>
+                <div styleName="topRight">
+                    <span>{picArray[this.state.pageIndex].PicDes}</span>
+                    <span styleName="topRightPage">{this.state.pageIndex+1}/{picArray.length}</span>
+                </div>
+                <div styleName="leftBtn" id="prevEl"></div>
+                <div styleName="rightBtn" id="nextEl"></div>
             </div>
+            
         )
     }
 }

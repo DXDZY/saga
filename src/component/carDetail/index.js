@@ -19,7 +19,7 @@ class CarDetail extends Component {
         if(data.data){
             return(
                 <div>
-                    <Banner {...data.data}/>
+                    <Banner picArray={data.data.carConfigPicsInfo}/>
                 </div>
             )
         }else{

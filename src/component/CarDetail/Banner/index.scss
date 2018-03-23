@@ -1,4 +1,85 @@
-.imgItem img{
+.container {
+    position: relative;
     height: 6.666667rem;
-    width: 100%;
+    .leftBtn {
+        width: .586667rem;
+        height: .88rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -.44rem;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, .4);
+        border-top-right-radius: .08rem;
+        border-bottom-right-radius: .08rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::after{
+            content: '';
+            display: block;
+            width: .16rem;
+            height: .16rem;
+            border-top: .04rem solid #ffffff;
+            border-left: .04rem solid #ffffff;
+            transform: rotate(-45deg);
+        }
+    }
+    .rightBtn {
+        width: .586667rem;
+        height: .88rem;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -.44rem;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, .4);
+        border-top-left-radius: .08rem;
+        border-bottom-left-radius: .08rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::after{
+            content: '';
+            display: block;
+            width: .16rem;
+            height: .16rem;
+            border-top: .04rem solid #ffffff;
+            border-right: .04rem solid #ffffff;
+            transform: rotate(45deg);
+        }
+    }
+    
+}
+
+
+.imgItem {
+    img {
+        width: 100%;
+    }
+}
+
+.topRight {
+    height: .533333rem;
+    border-radius: .053333rem;
+    background-color: #000000;
+    opacity: 0.4;
+    padding: .12rem .226667rem;
+    position: absolute;
+    top: .28rem;
+    right: .28rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    font-size: .293333rem;
+    color: #ffffff;
+    .topRightPage {
+        margin-left: .266667rem;
+    }
+}
+:global{
+    .swiper-disabled::after{
+        border-color:#9e9e9e !important;
+    }
 }

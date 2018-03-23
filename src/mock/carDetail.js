@@ -105,15 +105,15 @@ Mock.mock('/carDetail',function(options){
             },
             "carConfigPicsInfo": [
                 {
-                    "PicDes": "左前45度",
+                    "PicDes": "45度",
                     "FileName": "http://img.youxinpai.com/car/201702/1610/58a51586825fa610329.jpg"
                 },
                 {
-                    "PicDes": "左前45度",
+                    "PicDes": "左前46度",
                     "FileName": "http://img.youxinpai.com/car/201702/1610/58a51586825fa610329.jpg"
                 },
                 {
-                    "PicDes": "左前45度",
+                    "PicDes": "左前47度",
                     "FileName": "http://img.youxinpai.com/car/201702/1610/58a51586825fa610329.jpg"
                 }
             ],
