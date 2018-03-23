@@ -4,6 +4,7 @@ const carDetailReducer = (state={
     data:{},
     error:null,
     fetched:false,
+    isLoading:true
 },action)=>{
     switch(action.type){
         case get_carDetail_success:
@@ -11,6 +12,7 @@ const carDetailReducer = (state={
                 ...state,
                 fetched:true,
                 data:action.data,
+                isLoading:false,
             }
         case get_carDetail_fail:
             return {

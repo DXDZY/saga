@@ -15,7 +15,7 @@ class Banner extends Component {
     }
     componentDidMount() {
         const that = this;
-        const mySwiper = new Swiper('.swiper-container',{
+        new Swiper('.swiper-container',{
             zoom : true,
             navigation:{
                 nextEl: '#nextEl',

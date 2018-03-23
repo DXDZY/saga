@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Loading from './../Loading'
 import Banner from './Banner';
 class CarDetail extends Component {
     static defaultProps = {
@@ -15,22 +16,19 @@ class CarDetail extends Component {
     }
     showData=()=>{
         const {data} = this.props;
-        let ui = [];
         if(data.data){
             return(
                 <div>
                     <Banner {...data.data}/>
                 </div>
             )
-        }else{
-            return(<div>123</div>);
         }
-        // return ui
     }
     render() { 
         const showData = this.showData();
         return (  
             <div>
+                <Loading {...this.props}/>
                 {showData}
             </div>
         )

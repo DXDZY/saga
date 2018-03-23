@@ -4,7 +4,9 @@ import CarDetail from 'component/CarDetail';
 
 const mapStateToProps = (state)=>({
     data:state.carDetail.data.data,
+    isLoading:state.carDetail.isLoading,
 })
+
 const mapDispatchToProps = (dispatch)=>({
     getCarDetail:(carid)=>dispatch({
         type:get_carDetail,
