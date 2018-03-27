@@ -1,0 +1,22 @@
+.container{
+    padding:0 0.4rem;
+    .item{
+        width: 100%;
+        border-top:1px solid #e5e5e5;
+        padding:0.4667rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 0.4rem;
+        color:#5b5b5b;
+        .key{
+            width: 1.8667rem;
+        }
+        .value{
+            width: 6.8rem;
+        }
+    }
+    .orange{
+        color:#cc7766;
+    }
+}

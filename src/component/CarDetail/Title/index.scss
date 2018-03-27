@@ -1,0 +1,49 @@
+$fontColor:#272727;
+.container {
+    padding: .16rem .4rem;
+    .title {
+        font-size: .426667rem;
+        color: $fontColor;
+        font-weight: bolder;
+    }
+    .tip {
+        padding: .053333rem .106667rem;
+        color: #ffffff;
+        font-size: .266667rem;
+        margin-right: .133333rem;
+        border-radius: .053333rem;
+    }
+    .ditail {
+        font-size: .346667rem;
+        color: #5b5b5b;
+        margin-top: .133333rem;
+    }
+    .color-red {
+        background-color: #fe6442;
+    }
+    .color-blue {
+        background-color: #5599ee;
+    }
+    .color-yellow {
+        background-color: #ffa20c;
+    }
+}
+
+.line-c {
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #5b5b5b;
+    padding:.133333rem .4rem;
+    font-size: .346667rem;
+    &::before{
+        content: '';
+        display:block;
+        background: url('./img/warning2x.png') no-repeat center;
+        width: .32rem;
+        height: .32rem;
+        background-size: contain;
+        margin-right: .106667rem;
+    }
+}

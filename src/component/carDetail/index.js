@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 import Loading from './../Loading'
 import Banner from './Banner';
+import Title from './Title';
+import Splite from './Splite';
+import SubTitle from './SubTitle';
+import BaseInformation from './BaseInformation';
 class CarDetail extends Component {
     static defaultProps = {
         data:[],
@@ -20,16 +24,22 @@ class CarDetail extends Component {
             return(
                 <div>
                     <Banner {...data.data}/>
+                    <Title {...data.data}/>
+                    <Splite />
+                    <SubTitle type="link" title="出价规则" text="查看详情"/>
+                    <Splite />
+                    <SubTitle type="span" title="基本信息" moreHeight="true"/>
+                    <BaseInformation {...data.data} />
+                    <Splite />
                 </div>
             )
         }
     }
     render() { 
-        const showData = this.showData();
         return (  
             <div>
                 <Loading {...this.props}/>
-                {showData}
+                {this.showData()}
             </div>
         )
     }
