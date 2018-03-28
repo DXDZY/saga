@@ -6,6 +6,7 @@ import Title from './Title';
 import Splite from './Splite';
 import SubTitle from './SubTitle';
 import BaseInformation from './BaseInformation';
+import ProcedureInformation from './ProcedureInformation';
 class CarDetail extends Component {
     static defaultProps = {
         data:[],
@@ -30,6 +31,9 @@ class CarDetail extends Component {
                     <Splite />
                     <SubTitle type="span" title="基本信息" moreHeight="true"/>
                     <BaseInformation {...data.data} />
+                    <Splite />
+                    <SubTitle type="span" title="手续信息" moreHeight="true"/>
+                    <ProcedureInformation {...data.data}/>
                     <Splite />
                 </div>
             )

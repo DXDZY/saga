@@ -1,0 +1,91 @@
+.container {
+    width: 100%;
+    .text {
+        padding: 0.4667rem 0.4rem;
+        border-top: 1px solid #e5e5e5;
+        font-size: 0.4rem;
+        color: #5b5b5b;
+    }
+    .show-c {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .more {
+            font-size: 0.3467rem;
+            color: #a5a5a5;
+            width: 100%;
+            padding:0.4rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            border-top: 1px solid #e5e5e5;
+            .iDown {
+                display: block;
+                width: 0.2133rem;
+                height: 0.2133rem;
+                border-top: 0.04rem solid #adadad;
+                border-right: .04rem solid #adadad;
+                transform: rotate(135deg);
+                margin-top: -0.1067rem;
+                margin-left: 0.1067rem;
+            }
+            .iUp{
+                display: block;
+                width: 0.2133rem;
+                height: 0.2133rem;
+                border-top: 0.04rem solid #adadad;
+                border-right: .04rem solid #adadad;
+                transform: rotate(-45deg);
+                margin-top: 0.1067rem;
+                margin-left: 0.1067rem;
+            }
+        }
+    }
+}
+.detail-container{
+    padding:0 0.4rem;
+    .item{
+        padding: 0.4rem 0;
+        border-bottom: 1px dashed #e5e5e5;
+        font-size: 0.3733rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .key{
+            color:#5b5b5b;
+        }
+        .value{
+            color:#a5a5a5;
+        }
+    }
+}
+.hide{
+    display: none;
+}
+.imgContainer{
+    width: 100%;
+    padding:0.4rem 0;
+    .imgItem{
+        width: 4.2667rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        img{
+            width: 100%;
+            margin-bottom: 0.2667rem;
+        }
+    }
+    .imgItem:nth-of-type(odd){
+        float: left;
+    }
+    .imgItem:nth-of-type(odd){
+        float: right;
+    }
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
