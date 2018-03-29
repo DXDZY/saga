@@ -1,7 +1,8 @@
 .container {
     width: 100%;
     .text {
-        padding: 0.4667rem 0.4rem;
+        padding: 0.4667rem 0;
+        margin:0 0.4rem;
         border-top: 1px solid #e5e5e5;
         font-size: 0.4rem;
         color: #5b5b5b;
@@ -45,6 +46,7 @@
 }
 .detail-container{
     padding:0 0.4rem;
+    overflow: hidden;
     .item{
         padding: 0.4rem 0;
         border-bottom: 1px dashed #e5e5e5;
