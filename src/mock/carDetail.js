@@ -3,7 +3,7 @@ import Mock from 'mockjs';
 //设置响应时间
 Mock.setup({timeout:1000});
 
-Mock.mock('/carDetail',function(options){
+Mock.mock('api/carDetail',function(options){
     console.log(options);
     return {
         "code": 1,

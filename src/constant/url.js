@@ -1,6 +1,6 @@
-let baseUrl='';
+let baseUrl='api';
 if (process.env.NODE_ENV === 'production') {
-    baseUrl=''
+    baseUrl='api'
 }
 // console.log(process.env.NODE_ENV);
 //获取车辆详情信息

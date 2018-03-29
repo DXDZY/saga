@@ -42,8 +42,8 @@ class CarDetail extends Component {
     render() { 
         return (  
             <div>
-                <Loading {...this.props}/>
                 {this.showData()}
+                <Loading {...this.props}/>
             </div>
         )
     }

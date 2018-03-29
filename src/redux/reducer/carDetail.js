@@ -18,6 +18,7 @@ const carDetailReducer = (state={
             return {
                 ...state,
                 error:action.error,
+                isLoading:false,
             }
         default:
             return state;
