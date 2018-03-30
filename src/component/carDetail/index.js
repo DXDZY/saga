@@ -35,6 +35,7 @@ class CarDetail extends Component {
                     <SubTitle type="span" title="手续信息" moreHeight="true" id={payLoad.shouXuId}/>
                     <ProcedureInformation {...data.data} payLoad = {payLoad}/>
                     <Splite />
+                    <SubTitle type="span" title="手续信息" text="“质检师说”由科大讯飞转译" moreHeight="true" />
                 </div>
             )
         }
