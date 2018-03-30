@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {get_carDetail} from 'constant/actionTypes';
-import CarDetail from 'component/CarDetail';
+import Loadable from 'react-loadable';
+import Loading from 'component/Loading';
 
 const mapStateToProps = (state)=>({
     data:state.carDetail.data.data,
@@ -14,5 +15,8 @@ const mapDispatchToProps = (dispatch)=>({
         carid,
     }),
 })
-
-export default connect(mapStateToProps,mapDispatchToProps)(CarDetail);
+const LoadableComponent = Loadable({
+    loader: () => import('component/CarDetail'),
+    loading: Loading,
+});
+export default connect(mapStateToProps,mapDispatchToProps)(LoadableComponent);
