@@ -23,13 +23,13 @@ class SubTitle extends Component {
         return ui;
     }
     render() { 
-        const {title} = this.props;
+        const {title,id} = this.props;
         const containerStyle = classNames({
             "container":true,
             "moreHeight":this.props.moreHeight,
         });
         return (  
-            <div styleName={containerStyle}>
+            <div styleName={containerStyle} id={id}>
                 <div styleName="inner">
                     <span styleName="left">{title}</span>
                     {this.showType()}

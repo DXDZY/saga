@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 import Styles from './index.scss';
+import $ from 'jquery';
 
 class ProcedureInformation extends Component {
     constructor(props) {
@@ -9,6 +10,12 @@ class ProcedureInformation extends Component {
         this.state = {  
             hide:true,
         }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        const {payLoad} = this.props;
+        $('html,body').animate({
+            scrollTop: $(`#${payLoad.shouXuId}`).offset().top
+        },300);
     }
     showHide=()=>{
         this.setState({

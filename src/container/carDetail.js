@@ -5,6 +5,7 @@ import CarDetail from 'component/CarDetail';
 const mapStateToProps = (state)=>({
     data:state.carDetail.data.data,
     isLoading:state.carDetail.isLoading,
+    payLoad:state.carDetail.payLoad,
 })
 
 const mapDispatchToProps = (dispatch)=>({

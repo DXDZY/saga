@@ -20,7 +20,7 @@ class CarDetail extends Component {
         this.props.getCarDetail(carid);
     }
     showData=()=>{
-        const {data} = this.props;
+        const {data,payLoad} = this.props;
         if(data.data){
             return(
                 <div>
@@ -32,8 +32,8 @@ class CarDetail extends Component {
                     <SubTitle type="span" title="基本信息" moreHeight="true"/>
                     <BaseInformation {...data.data} />
                     <Splite />
-                    <SubTitle type="span" title="手续信息" moreHeight="true"/>
-                    <ProcedureInformation {...data.data}/>
+                    <SubTitle type="span" title="手续信息" moreHeight="true" id={payLoad.shouXuId}/>
+                    <ProcedureInformation {...data.data} payLoad = {payLoad}/>
                     <Splite />
                 </div>
             )
