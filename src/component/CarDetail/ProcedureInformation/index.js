@@ -12,10 +12,12 @@ class ProcedureInformation extends Component {
         }
     }
     componentDidUpdate(prevProps, prevState) {
-        const {payLoad} = this.props;
-        $('html,body').animate({
-            scrollTop: $(`#${payLoad.shouXuId}`).offset().top
-        },300);
+        if(!this.state.hide){
+            const {payLoad} = this.props;
+            $('html,body').animate({
+                scrollTop: $(`#${payLoad.shouXuId}`).offset().top
+            },300);
+        }
     }
     showHide=()=>{
         this.setState({
