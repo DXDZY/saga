@@ -46,6 +46,7 @@
 }
 .detail-container{
     padding:0 0.4rem;
+    margin-bottom: 0.8rem;
     overflow: hidden;
     .item{
         padding: 0.4rem 0;
@@ -64,30 +65,4 @@
 }
 .hide{
     display: none;
-}
-.imgContainer{
-    width: 100%;
-    padding:0.4rem 0;
-    .imgItem{
-        width: 4.2667rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        img{
-            width: 100%;
-            margin-bottom: 0.2667rem;
-        }
-    }
-    .imgItem:nth-of-type(odd){
-        float: left;
-    }
-    .imgItem:nth-of-type(odd){
-        float: right;
-    }
-}
-.clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
 }

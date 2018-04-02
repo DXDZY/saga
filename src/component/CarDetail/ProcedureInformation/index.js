@@ -3,17 +3,19 @@ import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 import Styles from './index.scss';
 import $ from 'jquery';
+import Imgs from './../Imgs'
 
 class ProcedureInformation extends Component {
     constructor(props) {
         super(props);
         this.state = {  
             hide:true,
+            first:true,
         }
     }
     componentDidUpdate(prevProps, prevState) {
-        if(!this.state.hide){
-            const {payLoad} = this.props;
+        const {payLoad} = this.props;
+        if(!this.state.first){
             $('html,body').animate({
                 scrollTop: $(`#${payLoad.shouXuId}`).offset().top
             },300);
@@ -22,6 +24,7 @@ class ProcedureInformation extends Component {
     showHide=()=>{
         this.setState({
             hide:!this.state.hide,
+            first:false,
         })
     }
     showDetail=()=>{
@@ -55,18 +58,7 @@ class ProcedureInformation extends Component {
                         <span styleName="key">商业险到期</span>
                         <span styleName="value">{FormalitiesInfo.ComAssuranceDate}</span>
                     </div>
-                    <div styleName="imgContainer clearfix">
-                        {
-                            FormalitiesInfo.carProcedurePicsInfo.map(function(item,index){
-                                return (
-                                    <div key={index} styleName="imgItem">
-                                        <img src={item.FileName} alt=""/>
-                                        <span>{item.PicDes}</span>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                    <Imgs imgs={FormalitiesInfo.carProcedurePicsInfo}/>
                 </div>
             )
         }

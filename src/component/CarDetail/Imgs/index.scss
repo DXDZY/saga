@@ -1,0 +1,27 @@
+.container {
+    .imgItem {
+        margin-top: 0.48rem;
+        width: 4.2667rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        img {
+            width: 100%;
+            margin-bottom: 0.2667rem;
+            border: 1px solid #e5e5e5;
+        }
+    }
+    .imgItem:nth-of-type(odd) {
+        float: left;
+    }
+    .imgItem:nth-of-type(even) {
+        float: right;
+    }
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}

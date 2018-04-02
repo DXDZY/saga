@@ -12,3 +12,4 @@ export const GET_USER_FAIL = 'GET_USER_FAIL';
 export const get_carDetail = 'get_carDetail';
 export const get_carDetail_success = 'get_carDetail_success';
 export const get_carDetail_fail = 'get_carDetail_fail';
+export const current_sound_type = 'current_sound_type';

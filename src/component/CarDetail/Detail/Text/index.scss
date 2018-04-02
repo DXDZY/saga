@@ -1,0 +1,101 @@
+.container {
+    padding: 0.2667rem 0;
+    .title {
+        padding: 0.3733rem 0.4267rem;
+        background-color: #fbfeff;
+        font-size: 0.3733rem;
+        color: #0e68b0;
+    }
+    .detail {
+        margin-top: 0.2667rem;
+        display: flex;
+        justify-content: space-between;
+        align-items:flex-start;
+    }
+    .text-c {
+        padding: 0.5rem 0.7467rem;
+        background-color: #fdfaf5;
+        width: 6.5rem;
+        // min-height: 0.4rem;
+        font-size: 0.3467rem;
+        color: #715b38;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            width: 0.2933rem;
+            height: 0.3333rem;
+            position: absolute;
+            top: 0.1rem;
+            left: 0.2667rem;
+            background: url('./img/quotes_start.png') no-repeat center;
+            background-size: contain;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 0.2933rem;
+            height: 0.3333rem;
+            position: absolute;
+            bottom: 0.1rem;
+            right: 0.2667rem;
+            background: url('./img/quotes_end.png') no-repeat center;
+            background-size: contain;
+        }
+        .text {
+            font-size: 0.3467rem;
+            color: #715b38;
+            position: relative;
+            display: block;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: -0.4rem;
+                right: -0.6667rem;
+                background: url('./img/zhijian.png') no-repeat center;
+                width: 0.7867rem;
+                height: 0.76rem;
+                background-size: contain;
+            }
+        }
+    }
+    .sound-c {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .sound {
+            width: 0.96rem;
+            height: 0.96rem;
+            background: url("./img/radio.png") no-repeat center;
+            background-size: cover;
+        }
+        .second {
+            font-size: 0.32rem;
+            color: #715b38;
+            margin-top: 0.2rem;
+        }
+    }
+}
+.radio-playing{
+    animation: audioAnimation 1s infinite;
+}
+@keyframes audioAnimation {
+    0% {
+        background: url("./img/radio_1.png");
+        background-size: contain;
+    }
+    35% {
+        background: url("./img/radio_2.png");
+        background-size: contain;
+    }
+    70% {
+        background: url("./img/radio.png");
+        background-size: contain;
+    }
+    100% {
+        background: url("./img/radio_1.png");
+        background-size: contain;
+    }
+}

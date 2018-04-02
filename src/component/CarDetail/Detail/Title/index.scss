@@ -1,0 +1,46 @@
+.container {
+    color: #272727;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .key {
+        font-size: 0.4rem;
+        margin-right: 0.2667rem;
+    }
+    .letter {
+        font-size: 0.4rem;
+        color: #ff5a37;
+    }
+    .start-gray {
+        background: url('./img/xing_gray.png') no-repeat center;
+        width: 1.6667rem;
+        height: 0.3333rem;
+        background-size: contain;
+    }
+    .start {
+        background: url('./img/xing.png') no-repeat center;
+        width: 1.6667rem;
+        height: 0.3333rem;
+        background-size: contain;
+    }
+    .start-1 {
+        width: 20%;
+        overflow: hidden;
+    }
+    .start-2 {
+        width: 40%;
+        overflow: hidden;
+    }
+    .start-3 {
+        width: 60%;
+        overflow: hidden;
+    }
+    .start-4 {
+        width: 80%;
+        overflow: hidden;
+    }
+    .start-5 {
+        width: 100%;
+        overflow: hidden;
+    }
+}
