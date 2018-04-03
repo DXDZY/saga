@@ -11,6 +11,7 @@ const carDetailReducer = (state = {
     payLoad: {
         shouXuId: 'sxId',
         currentSoundType: '-1',
+        currentShowDetai:'-1',
     }
 }, action) => {
     switch (action.type) {

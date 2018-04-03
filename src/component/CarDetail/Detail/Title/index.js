@@ -12,7 +12,7 @@ class Title extends Component {
             <div styleName="container">
                 <span styleName="key">{text}</span>
                 {
-                    type==='letter'?<span styleName="letter">B</span>:(
+                    type==='letter'?<span styleName="letter">{level}</span>:(
                         <div styleName="start-gray">
                             <div styleName={`start-${level}`}>
                                 <div styleName="start"></div>

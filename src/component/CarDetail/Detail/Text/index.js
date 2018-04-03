@@ -9,12 +9,12 @@ class Text extends Component {
         this.state = {  }
     }
     soundClick=()=>{
-        const {soundType} = this.props;
-        this.props.currentSoundType(soundType);        
+        const {targetId} = this.props;
+        this.props.currentSoundType(targetId);        
     }
     componentDidUpdate() {
-        const {soundType,payLoad} = this.props;
-        if(soundType===payLoad.currentSoundType){
+        const {targetId,payLoad} = this.props;
+        if(targetId===payLoad.currentSoundType){
             this.audio.play();
         }else{
             this.audio.pause();
@@ -31,25 +31,32 @@ class Text extends Component {
         });
     }
     render() { 
-        const {dataInfo,soundType,payLoad} = this.props;
+        const {
+            sound,
+            level_desc,
+            targetId,
+            payLoad,
+            explain_time,
+            explain,
+        } = this.props;
         const soundClass = classNames({
             sound:true,
-            'radio-playing':soundType===payLoad.currentSoundType,
+            'radio-playing':targetId===payLoad.currentSoundType,
         });
         return (  
             <div styleName="container">
-                <div styleName="title">{dataInfo.skeleton_level_desc}</div>
+                <div styleName="title">{level_desc}</div>
                 <div styleName="detail">
                     <div styleName="sound-c">
                         <div styleName={soundClass} onClick={this.soundClick}>
                             <audio ref={(ref)=>this.audio=ref}>
-                                <source src={dataInfo.skeleton_sound}/>
+                                <source src={sound}/>
                             </audio>
                         </div>
-                        <div styleName="second">{dataInfo.skeleton_explain_time}</div>
+                        <div styleName="second">{explain_time}</div>
                     </div>
                     <div styleName="text-c">
-                        <span styleName="text">{dataInfo.skeleton_explain}</span>
+                        <span styleName="text">{explain}</span>
                     </div>
                 </div>
             </div>

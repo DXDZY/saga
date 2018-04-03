@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 import Styles from './index.scss';
-import $ from 'jquery';
+// import $ from 'jquery';
 import Imgs from './../Imgs'
 
 class ProcedureInformation extends Component {
@@ -14,12 +14,12 @@ class ProcedureInformation extends Component {
         }
     }
     componentDidUpdate(prevProps, prevState) {
-        const {payLoad} = this.props;
-        if(!this.state.first){
-            $('html,body').animate({
-                scrollTop: $(`#${payLoad.shouXuId}`).offset().top
-            },300);
-        }
+        // const {payLoad} = this.props;
+        // if(!this.state.first){
+        //     $('html,body').animate({
+        //         scrollTop: $(`#${payLoad.shouXuId}`).offset().top
+        //     },300);
+        // }
     }
     showHide=()=>{
         this.setState({

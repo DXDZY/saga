@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 import {
     get_carDetail,
-    current_sound_type
+    current_sound_type,
 } from 'constant/actionTypes';
 import Loadable from 'react-loadable';
 import Loading from 'component/Loading';
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
     currentSoundType: (currentSoundType) => dispatch({
         type:current_sound_type,
         currentSoundType,
-    })
+    }),
 })
 const LoadableComponent = Loadable({
     loader: () =>
