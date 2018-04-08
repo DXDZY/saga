@@ -15,6 +15,7 @@ class Text extends Component {
     componentDidUpdate() {
         const {targetId,payLoad} = this.props;
         if(targetId===payLoad.currentSoundType){
+            this.audio.currentTime=0;
             this.audio.play();
         }else{
             this.audio.pause();

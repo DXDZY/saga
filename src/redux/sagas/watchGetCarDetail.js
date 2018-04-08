@@ -35,12 +35,6 @@ function* getDetail(action) {
     }
 }
 
-// function* soundClick(action) {
-//     yield put({
-//         type:current_sound_type,
-//         currentSoundType:action.currentSoundType,
-//     })
-// }
 export default function* watchGetCarDetail() {
     yield all([
         takeLatest(get_carDetail, getDetail),

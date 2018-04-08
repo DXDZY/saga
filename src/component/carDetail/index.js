@@ -34,14 +34,15 @@ class CarDetail extends Component {
                     <SubTitle type="span" title="基本信息" moreHeight="true"/>
                     <BaseInformation {...currentData} />
                     <Splite />
-                    <SubTitle type="span" title="手续信息" moreHeight="true" id={payLoad.shouXuId}/>
-                    <ProcedureInformation {...currentData} payLoad = {payLoad}/>
+                    <SubTitle type="span" title="手续信息" moreHeight="true" id="procedure"/>
+                    <ProcedureInformation targetId="procedure" {...currentData} payLoad = {payLoad}/>
                     <Splite />
                     <SubTitle type="span" title="车况信息" text="“质检师说”由科大讯飞转译" moreHeight="true" />
                     <Detail 
                         targetId="skeleton"
                         type="letter"
                         detailType="imgs"
+                        text="车身骨架"
                         carInfoName={currentData.skeletonInfo.carInfoName}
                         level_desc={currentData.skeletonInfo.skeleton_level_desc}
                         sound={currentData.skeletonInfo.skeleton_sound}
@@ -67,6 +68,7 @@ class CarDetail extends Component {
                         targetId="appearance"
                         type="letter"
                         detailType="imgs"
+                        text="车辆外观"
                         carInfoName={currentData.appearanceInfo.carInfoName}
                         level={currentData.appearanceInfo.appearance_level}
                         level_desc={currentData.appearanceInfo.appearance_level_desc}

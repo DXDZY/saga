@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 import Styles from './index.scss';
-// import $ from 'jquery';
+import $ from 'jquery';
 import Imgs from './../Imgs'
 
 class ProcedureInformation extends Component {
@@ -10,7 +10,6 @@ class ProcedureInformation extends Component {
         super(props);
         this.state = {  
             hide:true,
-            first:true,
         }
     }
     componentDidUpdate(prevProps, prevState) {
@@ -24,8 +23,11 @@ class ProcedureInformation extends Component {
     showHide=()=>{
         this.setState({
             hide:!this.state.hide,
-            first:false,
         })
+        const {targetId} = this.props;
+        $('html,body').animate({
+            scrollTop: $(`#${targetId}`).offset().top
+        },300);
     }
     showDetail=()=>{
         const {FormalitiesInfo} = this.props;

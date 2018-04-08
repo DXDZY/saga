@@ -5,14 +5,13 @@ import Styles from './index.scss'
 import Title from './Title'
 import Text from './Text';
 import Imgs from './../Imgs';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {  
             hide:true,
-            first:true,
         }
     }
     showDetail=()=>{
@@ -26,26 +25,18 @@ class Detail extends Component {
     footClick=()=>{
         this.setState({
             hide:!this.state.hide,
-            first:false,
         })
+        const {targetId} = this.props;
+        $('html,body').animate({
+            scrollTop: $(`#${targetId}`).offset().top
+        },300);
     }
-    componentDidUpdate() {
-        // const {targetId} = this.props;
-        // if(!this.state.first){
-        //     $('html,body').animate({
-        //         scrollTop: $(`#${targetId}`).offset().top
-        //     },300);
-        // }
-    }
+
     render() { 
         const {
-            level_desc,
-            type,
-            level,
             heavyCount,
             lightCount,
             targetId,
-            carInfoName,
         } = this.props;
         const iClass = classNames({
             iDown:this.state.hide,
