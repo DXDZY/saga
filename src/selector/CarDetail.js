@@ -4,12 +4,12 @@ import {
 
 const data = (state) => state.carDetail.data.data;
 const isLoading = (state) => state.carDetail.isLoading;
-const payLoad = (state) => state.carDetail.payLoad;
+const currentSoundType = (state) => state.carDetail.currentSoundType;
 
 export const getCarDetailProps = createSelector(
-    [data, isLoading, payLoad], (data, isLoading, payLoad) => ({
+    [data, isLoading, currentSoundType], (data, isLoading, currentSoundType) => ({
         data,
         isLoading,
-        payLoad,
+        currentSoundType,
     })
 )

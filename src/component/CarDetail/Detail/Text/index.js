@@ -10,11 +10,11 @@ class Text extends Component {
     }
     soundClick=()=>{
         const {targetId} = this.props;
-        this.props.currentSoundType(targetId);        
+        this.props.actions.getSoundType({currentSoundType:targetId});        
     }
     componentDidUpdate() {
-        const {targetId,payLoad} = this.props;
-        if(targetId===payLoad.currentSoundType){
+        const {targetId,currentSoundType} = this.props;
+        if(targetId===currentSoundType){
             this.audio.currentTime=0;
             this.audio.play();
         }else{
@@ -23,12 +23,12 @@ class Text extends Component {
     }
     componentDidMount() {
         this.audio.addEventListener('ended',()=>{
-            this.props.currentSoundType('-1');
+            this.props.actions.getSoundType({currentSoundType:'-1'});
         }); 
     }
     componentWillUnmount() {
         this.audio.removeEventListener('ended',()=>{
-            this.props.currentSoundType('-1');
+            this.props.actions.getSoundType({currentSoundType:'-1'});
         });
     }
     render() { 
@@ -36,13 +36,13 @@ class Text extends Component {
             sound,
             level_desc,
             targetId,
-            payLoad,
+            currentSoundType,
             explain_time,
             explain,
         } = this.props;
         const soundClass = classNames({
             sound:true,
-            'radio-playing':targetId===payLoad.currentSoundType,
+            'radio-playing':targetId===currentSoundType,
         });
         return (  
             <div styleName="container">

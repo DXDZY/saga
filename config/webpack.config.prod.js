@@ -100,6 +100,7 @@ module.exports = {
       'styles':path.resolve('src/styles'),
       'common':path.resolve('src/common'),
       'selector':path.resolve('src/selector'),
+      'action': path.resolve('src/action'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

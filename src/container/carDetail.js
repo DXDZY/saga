@@ -1,13 +1,11 @@
 import {
     connect
 } from 'react-redux';
-import {
-    get_carDetail,
-    current_sound_type,
-} from 'constant/actionTypes';
+import {bindActionCreators} from 'redux';
 import Loadable from 'react-loadable';
 import Loading from 'component/Loading';
 import {getCarDetailProps} from 'selector/CarDetail';
+import * as actions from 'action/carDetail';
 
 // const mapStateToProps = (state) => ({
 //     data: state.carDetail.data.data,
@@ -15,17 +13,19 @@ import {getCarDetailProps} from 'selector/CarDetail';
 //     payLoad: state.carDetail.payLoad,
 // })
 const mapStateToProps = (state) => getCarDetailProps(state);
-
 const mapDispatchToProps = (dispatch) => ({
-    getCarDetail: (carid) => dispatch({
-        type: get_carDetail,
-        carid,
-    }),
-    currentSoundType: (currentSoundType) => dispatch({
-        type:current_sound_type,
-        currentSoundType,
-    }),
+    actions:bindActionCreators(actions,dispatch)
 })
+// const mapDispatchToProps = (dispatch) => ({
+//     getCarDetail: (carid) => dispatch({
+//         type: get_carDetail,
+//         carid,
+//     }),
+//     currentSoundType: (currentSoundType) => dispatch({
+//         type:current_sound_type,
+//         currentSoundType,
+//     }),
+// })
 const LoadableComponent = Loadable({
     loader: () =>
         import ('component/CarDetail'),

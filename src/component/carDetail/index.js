@@ -18,7 +18,7 @@ class CarDetail extends Component {
     }
     componentDidMount() {
         const carid = this.props.match.params.carid;
-        this.props.getCarDetail(carid);
+        this.props.actions.getDate(carid);
     }
     showData=()=>{
         const {data,payLoad} = this.props;
