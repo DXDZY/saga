@@ -93,6 +93,7 @@ module.exports = {
       'mock': path.resolve('src/mock'),
       'styles': path.resolve('src/styles'),
       'common': path.resolve('src/common'),
+      'selector': path.resolve('src/selector'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

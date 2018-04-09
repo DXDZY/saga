@@ -7,12 +7,14 @@ import {
 } from 'constant/actionTypes';
 import Loadable from 'react-loadable';
 import Loading from 'component/Loading';
+import {getCarDetailProps} from 'selector/CarDetail';
 
-const mapStateToProps = (state) => ({
-    data: state.carDetail.data.data,
-    isLoading: state.carDetail.isLoading,
-    payLoad: state.carDetail.payLoad,
-})
+// const mapStateToProps = (state) => ({
+//     data: state.carDetail.data.data,
+//     isLoading: state.carDetail.isLoading,
+//     payLoad: state.carDetail.payLoad,
+// })
+const mapStateToProps = (state) => getCarDetailProps(state);
 
 const mapDispatchToProps = (dispatch) => ({
     getCarDetail: (carid) => dispatch({
