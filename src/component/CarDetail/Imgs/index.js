@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import Styles from './index.scss';
 import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'common/js/photoswipe-ui-default';
+import PhotoSwipeUI_Default from 'common/js/photoswipe/photoswipe-ui-default';
+import initPhotoSwipeFromDOM from 'common/js/photoswipe/photoswipeShow';
 import 'styles/photoswipe/photoswipe.css';
 import 'styles/photoswipe/default-skin.css';
-import initPhotoSwipeFromDOM from 'common/js/photoswipeShow';
 import defalutImg from 'common/img/default.png';
 
 class Imgs extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
-import Swiper from 'swiper';
+import Swiper from 'common/js/swiper/swiper.js';
 
 import 'styles/swiper.css'
 import styles from './index.scss'
