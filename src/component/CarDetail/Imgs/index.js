@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import Styles from './index.scss';
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeUI_Default from 'common/js/photoswipe/photoswipe-ui-default';
 import initPhotoSwipeFromDOM from 'common/js/photoswipe/photoswipeShow';
 import 'styles/photoswipe/photoswipe.css';
 import 'styles/photoswipe/default-skin.css';
@@ -15,17 +13,6 @@ class Imgs extends Component {
         this.state = {  }
     }
 
-    clickImg=(e,index)=>{
-        const pswpElement = document.querySelectorAll('.pswp')[0];
-        const options = {
-            index: index,
-            history: false,
-            focus: false,
-        }
-        // Initializes and opens PhotoSwipe
-        var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, this.imgItems, options);
-        gallery.init();
-    }
     componentDidMount() {
         initPhotoSwipeFromDOM('.my-gallery');
     }
@@ -41,17 +28,7 @@ class Imgs extends Component {
                 <div styleName="container clearfix" className="my-gallery">
                 {
                     imgs.map(function(item,index){
-                        that.imgItems.push({
-                            src:`${item.FileName}`,
-                            w:480,
-                            h:320,
-                            title: item.PicDes.split('-')[0],
-                        });                      
                         return (
-                            // <div key={index} styleName="imgItem" onClick={(e)=>that.clickImg(e,index)}>
-                            //     <img src={item.FileName} alt=""/>
-                            //     <span>{item.PicDes.split('-')[0]}</span>
-                            // </div>
                             <figure key={index} styleName="imgItem">
                                 <a href={item.FileName} data-size="480x320">
                                     <img src={item.FileName} alt="" onError={that.imgError}/>
