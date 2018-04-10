@@ -10,9 +10,8 @@ import appReducer from './redux/reducer';
 import rootSaga from './redux/sagas';
 
 import App from './container';
-// import './index.css';
-// import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+
+// import registerServiceWorker from './registerServiceWorker';
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -25,4 +24,4 @@ ReactDOM.render(
         <App />
     </Provider>
     , document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
