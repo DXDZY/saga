@@ -21,9 +21,9 @@ class CarDetail extends Component {
         this.props.actions.getDate(carid);
     }
     showData=()=>{
-        const {data,payLoad} = this.props;
+        const {data} = this.props;
         if(data.data){
-            const currentData = data.data;
+            const currentData = data.data.data;
             return(
                 <div>
                     <Banner {...currentData}/>
@@ -35,7 +35,7 @@ class CarDetail extends Component {
                     <BaseInformation {...currentData} />
                     <Splite />
                     <SubTitle type="span" title="手续信息" moreHeight="true" id="procedure"/>
-                    <ProcedureInformation targetId="procedure" {...currentData} payLoad = {payLoad}/>
+                    <ProcedureInformation targetId="procedure" {...currentData} />
                     <Splite />
                     <SubTitle type="span" title="车况信息" text="“质检师说”由科大讯飞转译" moreHeight="true" />
                     <Detail 

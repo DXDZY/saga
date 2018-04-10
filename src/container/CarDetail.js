@@ -4,10 +4,10 @@ import {
 import {bindActionCreators} from 'redux';
 import Loadable from 'react-loadable';
 import Loading from 'component/Loading';
-import {getCarDetailProps} from 'selector/CarDetail';
+import {getState} from 'selector';
 import * as actions from 'action/carDetail';
 
-const mapStateToProps = (state) => getCarDetailProps(state);
+const mapStateToProps = (state) => getState(state).carDetail;
 const mapDispatchToProps = (dispatch) => ({
     actions:bindActionCreators(actions,dispatch)
 })
