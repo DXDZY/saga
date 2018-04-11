@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter,Switch,Route } from 'react-router-dom';
 
+// import DevTools from 'container/DevTools';
 // import Sider from 'component/Sider';
 import CarDetail from './CarDetail';
 
@@ -19,6 +20,7 @@ class App extends Component {
                             <Route path="/:carid" exact component={CarDetail}></Route>
                         </Switch>
                     </div>
+                    {/* <DevTools /> */}
                 </div>
             </HashRouter>
         )
