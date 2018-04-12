@@ -15,7 +15,7 @@ import 'mock/carDetail';
 function* getDetail(action) {
     try {
         let param = new URLSearchParams();
-        param.append('carId', action.carid);
+        param.append('carid', action.payload.carid);
         const data = yield call(axios.post, get_carDetail_url, param);
         yield put({
             type: 'carDetail/getDataSuccess',
