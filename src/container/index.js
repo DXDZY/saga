@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter,Switch,Route } from 'react-router-dom';
+import { HashRouter,Switch,Route,Redirect } from 'react-router-dom';
 
 // import DevTools from 'container/DevTools';
 // import Sider from 'component/Sider';
@@ -18,6 +18,7 @@ class App extends Component {
                     <div>
                         <Switch>
                             <Route path="/:carid" exact component={CarDetail}></Route>
+                            <Redirect to="/012" />
                         </Switch>
                     </div>
                     {/* <DevTools /> */}
