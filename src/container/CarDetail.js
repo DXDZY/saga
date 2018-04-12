@@ -1,6 +1,4 @@
-import {
-    connect
-} from 'react-redux';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Loadable from 'react-loadable';
 import Loading from 'component/Loading';
