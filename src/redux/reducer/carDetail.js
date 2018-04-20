@@ -22,7 +22,7 @@ const carDetailReducer = handleActions({
         }
     }
 }, {
-    data: {},
+    data: '',
     error: null,
     isLoading: true,
     currentSoundType: '-1',

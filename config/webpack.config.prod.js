@@ -103,6 +103,7 @@ module.exports = {
       'action': path.resolve('src/action'),
       'store': path.resolve('src/store'),
       'container': path.resolve('src/container'),
+      'service': path.resolve('src/service'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

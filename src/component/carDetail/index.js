@@ -9,9 +9,6 @@ import BaseInformation from './BaseInformation';
 import ProcedureInformation from './ProcedureInformation';
 import Detail from './Detail';
 class CarDetail extends Component {
-    static defaultProps = {
-        data:[],
-    }
     constructor(props) {
         super(props);
         this.state = {  }
@@ -24,20 +21,19 @@ class CarDetail extends Component {
     }
     showData=()=>{
         const {data} = this.props;
-        if(data.data){
-            const currentData = data.data.data;
+        if(data){
             return(
                 <div>
-                    <Banner {...currentData}/>
-                    <Title {...currentData}/>
+                    <Banner {...data}/>
+                    <Title {...data}/>
                     <Splite />
                     <SubTitle type="link" title="出价规则" text="查看详情"/>
                     <Splite />
                     <SubTitle type="span" title="基本信息" moreHeight="true"/>
-                    <BaseInformation {...currentData} />
+                    <BaseInformation {...data} />
                     <Splite />
                     <SubTitle type="span" title="手续信息" moreHeight="true" id="procedure"/>
-                    <ProcedureInformation targetId="procedure" {...currentData} />
+                    <ProcedureInformation targetId="procedure" {...data} />
                     <Splite />
                     <SubTitle type="span" title="车况信息" text="“质检师说”由科大讯飞转译" moreHeight="true" />
                     <Detail 
@@ -45,24 +41,24 @@ class CarDetail extends Component {
                         type="letter"
                         detailType="imgs"
                         text="车身骨架"
-                        carInfoName={currentData.skeletonInfo.carInfoName}
-                        level_desc={currentData.skeletonInfo.skeleton_level_desc}
-                        sound={currentData.skeletonInfo.skeleton_sound}
-                        level={currentData.skeletonInfo.skeleton_level}
-                        explain_time={currentData.skeletonInfo.skeleton_explain_time}
-                        explain={currentData.skeletonInfo.skeleton_explain}
+                        carInfoName={data.skeletonInfo.carInfoName}
+                        level_desc={data.skeletonInfo.skeleton_level_desc}
+                        sound={data.skeletonInfo.skeleton_sound}
+                        level={data.skeletonInfo.skeleton_level}
+                        explain_time={data.skeletonInfo.skeleton_explain_time}
+                        explain={data.skeletonInfo.skeleton_explain}
                         imgs={[
                             {
-                                FileName:currentData.skeletonInfo.SkeletonInjury,
+                                FileName:data.skeletonInfo.SkeletonInjury,
                                 PicDes:"骨架损伤图",
                             },{
-                                FileName:currentData.skeletonInfo.SkeletonPaintRepair,
+                                FileName:data.skeletonInfo.SkeletonPaintRepair,
                                 PicDes:"骨架漆面修复图",
                             },
-                            ...currentData.skeletonInfo.skelentonInjuryPicInfo,
+                            ...data.skeletonInfo.skelentonInjuryPicInfo,
                         ]}
-                        heavyCount={currentData.skeletonInfo.skeleton_heavy_count}
-                        lightCount={currentData.skeletonInfo.skeleton_light_count}
+                        heavyCount={data.skeletonInfo.skeleton_heavy_count}
+                        lightCount={data.skeletonInfo.skeleton_light_count}
                         {...this.props}
                     />
                     <Splite />
@@ -71,24 +67,24 @@ class CarDetail extends Component {
                         type="letter"
                         detailType="imgs"
                         text="车辆外观"
-                        carInfoName={currentData.appearanceInfo.carInfoName}
-                        level={currentData.appearanceInfo.appearance_level}
-                        level_desc={currentData.appearanceInfo.appearance_level_desc}
-                        sound={currentData.appearanceInfo.appearance_sound}
-                        explain_time={currentData.appearanceInfo.appearance_explain_time}
-                        explain={currentData.appearanceInfo.appearance_explain}
+                        carInfoName={data.appearanceInfo.carInfoName}
+                        level={data.appearanceInfo.appearance_level}
+                        level_desc={data.appearanceInfo.appearance_level_desc}
+                        sound={data.appearanceInfo.appearance_sound}
+                        explain_time={data.appearanceInfo.appearance_explain_time}
+                        explain={data.appearanceInfo.appearance_explain}
                         imgs={[
                             {
-                                FileName:currentData.appearanceInfo.AppearanceInjury,
+                                FileName:data.appearanceInfo.AppearanceInjury,
                                 PicDes:"外观损伤图",
                             },{
-                                FileName:currentData.appearanceInfo.AppearancePaintRepair,
+                                FileName:data.appearanceInfo.AppearancePaintRepair,
                                 PicDes:"外观漆面修复图",
                             },
-                            ...currentData.appearanceInfo.appearanceInjuryPicInfo,
+                            ...data.appearanceInfo.appearanceInjuryPicInfo,
                         ]}
-                        heavyCount={currentData.appearanceInfo.appearance_heavy_count}
-                        lightCount={currentData.appearanceInfo.appearance_light_count}
+                        heavyCount={data.appearanceInfo.appearance_heavy_count}
+                        lightCount={data.appearanceInfo.appearance_light_count}
                         {...this.props}
                     />
                 </div>
